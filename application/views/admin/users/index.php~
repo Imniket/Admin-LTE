@@ -1,0 +1,66 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Users 
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="<?= base_url('admin/dashboard') ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a class="active">Users</a></li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="<?= base_url() ?>admin/users/add" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Add User</a>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-primary">
+                <!-- /.box-header -->
+                <div class="box-body">
+
+            <script type="text/javascript"> 
+                
+                function userSearch() {
+                    $('#userDataTable').DataTable().destroy();
+                    showLoadingBar();
+                    var ajaxUrl = "<?php echo base_url() ?>admin/users/users_list";
+                    createDataTable($('#userDataTable'),ajaxUrl,"");
+                }
+                
+            </script>
+                    <div class="table-responsive">
+                        <table id="userDataTable" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Profile</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Mobile</th>
+                                    <th>Registered Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /.content-wrapper -->
+<script> 
+$(document).ready(function() { 
+    userSearch(); 
+     $('#userDataTable').dataTable();   
+} ); 
+</script>
